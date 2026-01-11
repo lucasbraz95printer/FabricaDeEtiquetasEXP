@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tienda Online</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: #111;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .product {
+            background: #fff;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .product img {
+            width: 100%;
+            border-radius: 6px;
+        }
+
+        .product h3 {
+            margin: 10px 0 5px;
+        }
+
+        .price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2e7d32;
+        }
+
+        select, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        button {
+            background: #25d366;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1ebe5d;
+        }
+
+        .cart {
+            background: #fff;
+            padding: 15px;
+            margin: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .cart h2 {
+            margin-top: 0;
+        }
+
+        .cart-item {
+            border-bottom: 1px solid #ddd;
+            padding: 5px 0;
+        }
+
+        .order-btn {
+            background: #000;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Mi Tienda Online</h1>
+    <p>Pedidos rápidos y simples</p>
+</header>
+
+<div class="container">
+
+    <!-- PRODUCTO 1 -->
+    <div class="product">
+        <img src="https://via.placeholder.com/400x300" alt="Producto 1">
+        <h3>Cuadro Decorativo</h3>
+        <p class="price">$25</p>
+
+        <select id="p1">
+            <option value="Cuadro 30x40">30x40 cm</option>
+            <option value="Cuadro 40x60">40x60 cm</option>
+            <option value="Cuadro 60x90">60x90 cm</option>
+        </select>
+
+        <button onclick="addToCart('Cuadro Decorativo', 'p1')">
+            Agregar al carrito
+        </button>
+    </div>
+
+    <!-- PRODUCTO 2 -->
+    <div class="product">
+        <img src="https://via.placeholder.com/400x300" alt="Producto 2">
+        <h3>Vinilo Adhesivo</h3>
+        <p class="price">$15</p>
+
+        <select id="p2">
+            <option value="Vinilo Mate">Mate</option>
+            <option value="Vinilo Brillante">Brillante</option>
+            <option value="Vinilo Transparente">Transparente</option>
+        </select>
+
+        <button onclick="addToCart('Vinilo Adhesivo', 'p2')">
+            Agregar al carrito
+        </button>
+    </div>
+
+    <!-- PRODUCTO 3 -->
+    <div class="product">
+        <img src="https://via.placeholder.com/400x300" alt="Producto 3">
+        <h3>Banner Publicitario</h3>
+        <p class="price">$40</p>
+
+        <select id="p3">
+            <option value="Banner 80x200">80x200 cm</option>
+            <option value="Banner 100x200">100x200 cm</option>
+            <option value="Banner 120x200">120x200 cm</option>
+        </select>
+
+        <button onclick="addToCart('Banner Publicitario', 'p3')">
+            Agregar al carrito
+        </button>
+    </div>
+
+</div>
+
+<div class="cart">
+    <h2>Carrito</h2>
+    <div id="cartItems"></div>
+
+    <button class="order-btn" onclick="sendOrder()">
+        Realizar pedido por WhatsApp
+    </button>
+</div>
+
+<script>
+    let cart = [];
+
+    function addToCart(product, selectId) {
+        const option = document.getElementById(selectId).value;
+        cart.push(`${product} - ${option}`);
+        renderCart();
+    }
+
+    function renderCart() {
+        const cartDiv = document.getElementById("cartItems");
+        cartDiv.innerHTML = "";
+
+        cart.forEach(item => {
+            const div = document.createElement("div");
+            div.className = "cart-item";
+            div.innerText = item;
+            cartDiv.appendChild(div);
+        });
+    }
+
+    function sendOrder() {
+        if (cart.length === 0) {
+            alert("El carrito está vacío");
+            return;
+        }
+
+        let message = "Ola, Gostaria de fazer um pedido:%0A%0A";
+        cart.forEach(item => {
+            message += "- " + item + "%0A";
+        });
+
+        // CAMBIA EL NÚMERO AQUÍ
+        const phone = "+5555999284962";
+        window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
+    }
+</script>
+
+</body>
+</html>
