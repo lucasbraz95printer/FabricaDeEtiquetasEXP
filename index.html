@@ -1,206 +1,240 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Tienda Online</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Etiquetas Adhesivas</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f5f5f5;
-            margin: 0;
-            padding: 0;
-        }
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f4f4f4;
+}
 
-        header {
-            background: #111;
-            color: #fff;
-            padding: 15px;
-            text-align: center;
-        }
+/* HEADER */
+.site-header {
+    background: #111;
+    padding: 20px;
+    text-align: center;
+}
 
-        .container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
+.logo-area img {
+    max-width: 180px;
+    margin-bottom: 10px;
+}
 
-        .product {
-            background: #fff;
-            border-radius: 8px;
-            padding: 15px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
+.banner-area img {
+    width: 100%;
+    max-width: 1100px;
+    border-radius: 10px;
+}
 
-        .product img {
-            width: 100%;
-            border-radius: 6px;
-        }
+/* PRODUCTS */
+.container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
 
-        .product h3 {
-            margin: 10px 0 5px;
-        }
+.product {
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
 
-        .price {
-            font-size: 18px;
-            font-weight: bold;
-            color: #2e7d32;
-        }
+.product img {
+    width: 100%;
+    border-radius: 8px;
+}
 
-        select, button {
-            width: 100%;
-            padding: 10px;
-            margin-top: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            font-size: 16px;
-        }
+.product h3 {
+    margin: 10px 0 5px;
+}
 
-        button {
-            background: #25d366;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-        }
+.price {
+    font-weight: bold;
+    font-size: 18px;
+    color: #2e7d32;
+}
 
-        button:hover {
-            background: #1ebe5d;
-        }
+select, button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+}
 
-        .cart {
-            background: #fff;
-            padding: 15px;
-            margin: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
+button {
+    background: #25d366;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
 
-        .cart h2 {
-            margin-top: 0;
-        }
+/* CART */
+.cart {
+    background: #fff;
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
 
-        .cart-item {
-            border-bottom: 1px solid #ddd;
-            padding: 5px 0;
-        }
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+    padding: 8px 0;
+}
 
-        .order-btn {
-            background: #000;
-            margin-top: 15px;
-        }
-    </style>
+.remove-btn {
+    color: red;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.clear-btn {
+    background: #c62828;
+    margin-top: 10px;
+}
+
+.order-btn {
+    background: #000;
+    margin-top: 15px;
+}
+</style>
 </head>
+
 <body>
 
-<header>
-    <h1>Mi Tienda Online</h1>
-    <p>Pedidos rápidos y simples</p>
+<header class="site-header">
+    <div class="logo-area">
+        <img src="https://via.placeholder.com/180x90" alt="Logo">
+    </div>
+    <div class="banner-area">
+        <img src="https://via.placeholder.com/1100x300" alt="Etiquetas Adhesivas">
+    </div>
 </header>
 
 <div class="container">
 
-    <!-- PRODUCTO 1 -->
+    <!-- ETIQUETAS REDONDAS -->
     <div class="product">
-        <img src="https://via.placeholder.com/400x300" alt="Producto 1">
-        <h3>Cuadro Decorativo</h3>
-        <p class="price">$25</p>
+        <img src="https://via.placeholder.com/400x300">
+        <h3>Etiquetas Redondas</h3>
+        <p class="price">Desde $ —</p>
 
         <select id="p1">
-            <option value="Cuadro 30x40">30x40 cm</option>
-            <option value="Cuadro 40x60">40x60 cm</option>
-            <option value="Cuadro 60x90">60x90 cm</option>
+            <option>Ø 3 cm</option>
+            <option>Ø 5 cm</option>
+            <option>Ø 7 cm</option>
+            <option>Ø 10 cm</option>
         </select>
 
-        <button onclick="addToCart('Cuadro Decorativo', 'p1')">
-            Agregar al carrito
-        </button>
+        <button onclick="addToCart('Etiqueta Redonda', 'p1')">Agregar</button>
     </div>
 
-    <!-- PRODUCTO 2 -->
+    <!-- ETIQUETAS CUADRADAS -->
     <div class="product">
-        <img src="https://via.placeholder.com/400x300" alt="Producto 2">
-        <h3>Vinilo Adhesivo</h3>
-        <p class="price">$15</p>
+        <img src="https://via.placeholder.com/400x300">
+        <h3>Etiquetas Cuadradas</h3>
+        <p class="price">Desde $ —</p>
 
         <select id="p2">
-            <option value="Vinilo Mate">Mate</option>
-            <option value="Vinilo Brillante">Brillante</option>
-            <option value="Vinilo Transparente">Transparente</option>
+            <option>3 x 3 cm</option>
+            <option>5 x 5 cm</option>
+            <option>7 x 7 cm</option>
+            <option>10 x 10 cm</option>
         </select>
 
-        <button onclick="addToCart('Vinilo Adhesivo', 'p2')">
-            Agregar al carrito
-        </button>
+        <button onclick="addToCart('Etiqueta Cuadrada', 'p2')">Agregar</button>
     </div>
 
-    <!-- PRODUCTO 3 -->
+    <!-- LACRES -->
     <div class="product">
-        <img src="https://via.placeholder.com/400x300" alt="Producto 3">
-        <h3>Banner Publicitario</h3>
-        <p class="price">$40</p>
+        <img src="https://via.placeholder.com/400x300">
+        <h3>Lacres para Cierre</h3>
+        <p class="price">Desde $ —</p>
 
         <select id="p3">
-            <option value="Banner 80x200">80x200 cm</option>
-            <option value="Banner 100x200">100x200 cm</option>
-            <option value="Banner 120x200">120x200 cm</option>
+            <option>2 x 8 cm</option>
+            <option>3 x 10 cm</option>
+            <option>4 x 12 cm</option>
         </select>
 
-        <button onclick="addToCart('Banner Publicitario', 'p3')">
-            Agregar al carrito
-        </button>
+        <button onclick="addToCart('Lacre Adhesivo', 'p3')">Agregar</button>
     </div>
 
 </div>
 
 <div class="cart">
-    <h2>Carrito</h2>
-    <div id="cartItems"></div>
+    <h2>🛒 Pedido</h2>
+    <div id="cartItems">Carrito vacío</div>
 
-    <button class="order-btn" onclick="sendOrder()">
-        Realizar pedido por WhatsApp
-    </button>
+    <button class="clear-btn" onclick="clearCart()">Vaciar carrito</button>
+    <button class="order-btn" onclick="sendOrder()">Enviar pedido por WhatsApp</button>
 </div>
 
 <script>
-    let cart = [];
+let cart = [];
 
-    function addToCart(product, selectId) {
-        const option = document.getElementById(selectId).value;
-        cart.push(`${product} - ${option}`);
+function addToCart(product, selectId) {
+    const size = document.getElementById(selectId).value;
+    cart.push(`${product} (${size})`);
+    renderCart();
+}
+
+function removeItem(index) {
+    cart.splice(index, 1);
+    renderCart();
+}
+
+function clearCart() {
+    if (confirm("¿Vaciar el carrito?")) {
+        cart = [];
         renderCart();
     }
+}
 
-    function renderCart() {
-        const cartDiv = document.getElementById("cartItems");
-        cartDiv.innerHTML = "";
+function renderCart() {
+    const div = document.getElementById("cartItems");
+    div.innerHTML = "";
 
-        cart.forEach(item => {
-            const div = document.createElement("div");
-            div.className = "cart-item";
-            div.innerText = item;
-            cartDiv.appendChild(div);
-        });
+    if (cart.length === 0) {
+        div.innerHTML = "Carrito vacío";
+        return;
     }
 
-    function sendOrder() {
-        if (cart.length === 0) {
-            alert("El carrito está vacío");
-            return;
-        }
+    cart.forEach((item, i) => {
+        div.innerHTML += `
+            <div class="cart-item">
+                <span>${item}</span>
+                <span class="remove-btn" onclick="removeItem(${i})">✖</span>
+            </div>
+        `;
+    });
+}
 
-        let message = "Ola, Gostaria de fazer um pedido:%0A%0A";
-        cart.forEach(item => {
-            message += "- " + item + "%0A";
-        });
-
-        // CAMBIA EL NÚMERO AQUÍ
-        const phone = "+5555999284962";
-        window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
+function sendOrder() {
+    if (cart.length === 0) {
+        alert("No hay productos en el carrito");
+        return;
     }
+
+    let msg = "Hola, quiero cotizar etiquetas:%0A%0A";
+    cart.forEach(i => msg += "- " + i + "%0A");
+
+    const phone = "+5555999284962"; // TU NÚMERO
+    window.open(`https://wa.me/${phone}?text=${msg}`, "_blank");
+}
 </script>
 
 </body>
