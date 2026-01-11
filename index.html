@@ -130,7 +130,7 @@ button {
     <div class="product">
         <img src="https://via.placeholder.com/400x300">
         <h3>Etiquetas Redondas</h3>
-        <p class="price">Desde $ —</p>
+        <p class="price">A partir de R$ 30 —</p>
 
         <select id="p1">
             <option>Ø 3 cm</option>
@@ -146,7 +146,7 @@ button {
     <div class="product">
         <img src="https://via.placeholder.com/400x300">
         <h3>Etiquetas Cuadradas</h3>
-        <p class="price">Desde $ —</p>
+        <p class="price">A partir de R$ 30 —</p>
 
         <select id="p2">
             <option>3 x 3 cm</option>
@@ -161,8 +161,8 @@ button {
     <!-- LACRES -->
     <div class="product">
         <img src="https://via.placeholder.com/400x300">
-        <h3>Lacres para Cierre</h3>
-        <p class="price">Desde $ —</p>
+        <h3>Lacres adesivo  </h3>
+        <p class="price">A partir de R$ 30 —</p>
 
         <select id="p3">
             <option>2 x 8 cm</option>
@@ -179,7 +179,7 @@ button {
     <h2>🛒 Pedido</h2>
     <div id="cartItems">Carrito vacío</div>
 
-    <button class="clear-btn" onclick="clearCart()">Vaciar carrito</button>
+    <button class="clear-btn" onclick="clearCart()">Esvaziar carrinho</button>
     <button class="order-btn" onclick="sendOrder()">Enviar pedido por WhatsApp</button>
 </div>
 
@@ -229,13 +229,14 @@ function sendOrder() {
         return;
     }
 
-    let msg = "Hola, quiero cotizar etiquetas:%0A%0A";
+    let msg = "Ola quero realizar meu pedido:%0A%0A";
     cart.forEach(i => msg += "- " + i + "%0A");
 
-    const phone = "59800000000"; // TU NÚMERO
+    const phone = "+5555999284962"; // TU NÚMERO
     window.open(`https://wa.me/${phone}?text=${msg}`, "_blank");
 }
 </script>
 
 </body>
 </html>
+
