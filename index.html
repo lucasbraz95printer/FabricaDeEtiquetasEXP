@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Etiquetas Adhesivas</title>
+<title>Etiquetas Adesivas Personalizadas</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    background: #f4f4f4;
+    background: #f2f2f2;
 }
 
-/* HEADER */
+/* CABEÇALHO */
 .site-header {
     background: #111;
     padding: 20px;
@@ -21,7 +21,7 @@ body {
 
 .logo-area img {
     max-width: 180px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 .banner-area img {
@@ -30,7 +30,7 @@ body {
     border-radius: 10px;
 }
 
-/* PRODUCTS */
+/* PRODUTOS */
 .container {
     max-width: 1200px;
     margin: 30px auto;
@@ -42,9 +42,9 @@ body {
 
 .product {
     background: #fff;
-    padding: 15px;
+    padding: 16px;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.12);
 }
 
 .product img {
@@ -53,19 +53,19 @@ body {
 }
 
 .product h3 {
-    margin: 10px 0 5px;
+    margin: 12px 0 6px;
 }
 
-.price {
+.price-info {
     font-weight: bold;
-    font-size: 18px;
     color: #2e7d32;
+    margin-bottom: 6px;
 }
 
 select, button {
     width: 100%;
     padding: 10px;
-    margin-top: 10px;
+    margin-top: 8px;
     border-radius: 6px;
     border: 1px solid #ccc;
     font-size: 15px;
@@ -78,14 +78,20 @@ button {
     cursor: pointer;
 }
 
-/* CART */
+/* CARRINHO */
+.cart-wrapper {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 20px;
+    border: 2px dashed #999;
+    border-radius: 12px;
+    background: #eaeaea;
+}
+
 .cart {
     background: #fff;
-    max-width: 600px;
-    margin: 30px auto;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 .cart-item {
@@ -117,126 +123,165 @@ button {
 
 <header class="site-header">
     <div class="logo-area">
-        <img src="https://via.placeholder.com/180x90" alt="Logo">
+        <img src="img/logo.png" alt="Logo da empresa">
     </div>
+
     <div class="banner-area">
-        <img src="https://via.placeholder.com/1100x300" alt="Etiquetas Adhesivas">
+        <img src="img/banner.jpg" alt="Etiquetas adesivas personalizadas">
     </div>
 </header>
 
 <div class="container">
 
-    <!-- ETIQUETAS REDONDAS -->
-    <div class="product">
-        <img src="https://via.placeholder.com/400x300">
-        <h3>Etiquetas Redondas</h3>
-        <p class="price">A partir de R$ 30 —</p>
+<!-- ETIQUETAS REDONDAS -->
+<div class="product">
+    <img src="img/redonda.jpg">
+    <h3>Etiquetas Redondas</h3>
+    <div class="price-info">Preço a partir de R$ 30,00</div>
 
-        <select id="p1">
-            <option>Ø 3 cm</option>
-            <option>Ø 5 cm</option>
-            <option>Ø 7 cm</option>
-            <option>Ø 10 cm</option>
-        </select>
+    <select id="rSize">
+        <option value="3">Ø 3 cm</option>
+        <option value="5">Ø 5 cm</option>
+        <option value="7">Ø 7 cm</option>
+        <option value="10">Ø 10 cm</option>
+    </select>
 
-        <button onclick="addToCart('Etiqueta Redonda', 'p1')">Agregar</button>
-    </div>
+    <select id="rQty">
+        <option value="100">Pack 100 unidades</option>
+        <option value="300">Pack 300 unidades</option>
+        <option value="500">Pack 500 unidades</option>
+        <option value="1000">Pack 1000 unidades</option>
+    </select>
 
-    <!-- ETIQUETAS CUADRADAS -->
-    <div class="product">
-        <img src="https://via.placeholder.com/400x300">
-        <h3>Etiquetas Cuadradas</h3>
-        <p class="price">A partir de R$ 30 —</p>
+    <div class="price-info" id="rPrice">Preço: R$ 30,00</div>
 
-        <select id="p2">
-            <option>3 x 3 cm</option>
-            <option>5 x 5 cm</option>
-            <option>7 x 7 cm</option>
-            <option>10 x 10 cm</option>
-        </select>
+    <button onclick="addRound()">Adicionar ao pedido</button>
+</div>
 
-        <button onclick="addToCart('Etiqueta Cuadrada', 'p2')">Agregar</button>
-    </div>
+<!-- ETIQUETAS QUADRADAS -->
+<div class="product">
+    <img src="img/quadrada.jpg">
+    <h3>Etiquetas Quadradas</h3>
+    <div class="price-info">Preço a partir de R$ 30,00</div>
 
-    <!-- LACRES -->
-    <div class="product">
-        <img src="https://via.placeholder.com/400x300">
-        <h3>Lacres adesivo  </h3>
-        <p class="price">A partir de R$ 30 —</p>
+    <select id="qSize">
+        <option value="3">3 x 3 cm</option>
+        <option value="5">5 x 5 cm</option>
+        <option value="7">7 x 7 cm</option>
+        <option value="10">10 x 10 cm</option>
+    </select>
 
-        <select id="p3">
-            <option>2 x 8 cm</option>
-            <option>3 x 10 cm</option>
-            <option>4 x 12 cm</option>
-        </select>
+    <select id="qQty">
+        <option value="100">Pack 100 unidades</option>
+        <option value="300">Pack 300 unidades</option>
+        <option value="500">Pack 500 unidades</option>
+        <option value="1000">Pack 1000 unidades</option>
+    </select>
 
-        <button onclick="addToCart('Lacre Adhesivo', 'p3')">Agregar</button>
-    </div>
+    <div class="price-info" id="qPrice">Preço: R$ 30,00</div>
+
+    <button onclick="addSquare()">Adicionar ao pedido</button>
+</div>
+
+<!-- LACRES -->
+<div class="product">
+    <img src="img/lacre.jpg">
+    <h3>Lacres Adesivos para Fechamento</h3>
+    <div class="price-info">Preço a partir de R$ 30,00</div>
+
+    <select id="lSize">
+        <option value="2x8">2 x 8 cm</option>
+        <option value="3x10">3 x 10 cm</option>
+        <option value="4x12">4 x 12 cm</option>
+    </select>
+
+    <select id="lQty">
+        <option value="100">Pack 100 unidades</option>
+        <option value="300">Pack 300 unidades</option>
+        <option value="500">Pack 500 unidades</option>
+        <option value="1000">Pack 1000 unidades</option>
+    </select>
+
+    <div class="price-info">Preço: Sob consulta</div>
+
+    <button onclick="addLacre()">Adicionar ao pedido</button>
+</div>
 
 </div>
 
-<div class="cart">
-    <h2>🛒 Pedido</h2>
-    <div id="cartItems">Carrito vacío</div>
+<!-- CARRINHO SEPARADO -->
+<div class="cart-wrapper">
+    <div class="cart">
+        <h2>🛒 Seu Pedido</h2>
+        <div id="cartItems">Carrinho vazio</div>
 
-    <button class="clear-btn" onclick="clearCart()">Esvaziar carrinho</button>
-    <button class="order-btn" onclick="sendOrder()">Enviar pedido por WhatsApp</button>
+        <button class="clear-btn" onclick="clearCart()">Limpar carrinho</button>
+        <button class="order-btn" onclick="sendOrder()">Enviar pedido via WhatsApp</button>
+    </div>
 </div>
 
 <script>
+const priceM2 = 45;
+const minPrice = 30;
 let cart = [];
 
-function addToCart(product, selectId) {
-    const size = document.getElementById(selectId).value;
-    cart.push(`${product} (${size})`);
+function calcRound(sizeCm, qty) {
+    const r = (sizeCm / 100) / 2;
+    const area = Math.PI * r * r * qty;
+    return Math.max(area * priceM2, minPrice);
+}
+
+function updateRound() {
+    const s = rSize.value;
+    const q = rQty.value;
+    rPrice.innerText = "Preço: R$ " + calcRound(s,q).toFixed(2);
+}
+
+rSize.onchange = updateRound;
+rQty.onchange = updateRound;
+updateRound();
+
+function addRound() {
+    const s = rSize.value;
+    const q = rQty.value;
+    const p = calcRound(s,q).toFixed(2);
+    cart.push(`Etiqueta Redonda Ø ${s} cm – ${q} un – R$ ${p}`);
     renderCart();
 }
 
-function removeItem(index) {
-    cart.splice(index, 1);
+function addSquare() {
+    cart.push(`Etiqueta Quadrada – conforme seleção`);
     renderCart();
 }
 
-function clearCart() {
-    if (confirm("¿Vaciar el carrito?")) {
-        cart = [];
-        renderCart();
-    }
+function addLacre() {
+    cart.push(`Lacre adesivo – conforme seleção`);
+    renderCart();
 }
 
 function renderCart() {
     const div = document.getElementById("cartItems");
     div.innerHTML = "";
+    if (cart.length === 0) { div.innerText = "Carrinho vazio"; return; }
 
-    if (cart.length === 0) {
-        div.innerHTML = "Carrito vacío";
-        return;
-    }
-
-    cart.forEach((item, i) => {
+    cart.forEach((i, idx) => {
         div.innerHTML += `
-            <div class="cart-item">
-                <span>${item}</span>
-                <span class="remove-btn" onclick="removeItem(${i})">✖</span>
-            </div>
-        `;
+        <div class="cart-item">
+            <span>${i}</span>
+            <span class="remove-btn" onclick="removeItem(${idx})">✖</span>
+        </div>`;
     });
 }
 
+function removeItem(i){ cart.splice(i,1); renderCart(); }
+function clearCart(){ cart=[]; renderCart(); }
+
 function sendOrder() {
-    if (cart.length === 0) {
-        alert("No hay productos en el carrito");
-        return;
-    }
-
-    let msg = "Ola quero realizar meu pedido:%0A%0A";
+    let msg = "Olá, gostaria de solicitar um orçamento:%0A%0A";
     cart.forEach(i => msg += "- " + i + "%0A");
-
-    const phone = "+5555999284962"; // TU NÚMERO
-    window.open(`https://wa.me/${phone}?text=${msg}`, "_blank");
+    window.open("https://wa.me/5555999284962?text=" + msg, "_blank");
 }
 </script>
 
 </body>
 </html>
-
